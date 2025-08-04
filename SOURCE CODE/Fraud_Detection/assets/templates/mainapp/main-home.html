@@ -1,0 +1,493 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'mainapp/fonts/icomoon/style.css'%}">
+
+    <link rel="stylesheet" href="{% static 'mainapp/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'mainapp/css/jquery-ui.css'%}">
+    <link rel="stylesheet" href="{% static 'mainapp/css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'mainapp/css/owl.theme.default.min.css'%}">
+    <link rel="stylesheet" href="{% static 'mainapp/css/owl.theme.default.min.css'%}">
+
+    <link rel="stylesheet" href="{% static 'mainapp/css/jquery.fancybox.min.css'%}">
+
+    {% comment %} <link rel="stylesheet" href="{% static 'mainapp/css/bootstrap-datepicker.css'%}"> {% endcomment %}
+
+    <link rel="stylesheet" href="{% static 'mainapp/fonts/flaticon/font/flaticon.css'%}">
+
+    <link rel="stylesheet" href="{% static 'mainapp/css/aos.css'%}">
+
+    <link rel="stylesheet" href="{% static 'mainapp/css/style.css'%}">
+    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  
+    {% if messages %}
+    {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <script>swal({
+                    title: "Success!",
+                    text: "{{message}}",
+                    icon: "success",
+                    button: "OK",
+                });
+            </script>
+        
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+            <script>swal({
+                    title: "Warning :)",
+                    text: "{{message}}",
+                    icon: "warning",
+                    button: "OK",
+                
+                });
+            </script>
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+            <script>swal({
+                    title: "info :)",
+                    text: "{{message}}",
+                    icon: "info",
+                    button: "OK",
+                });
+            </script>
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            <script>swal({
+                    title: "error :)",
+                    text: "{{message}}",
+                    icon: "error",
+                    button: "OK",
+                });
+            </script>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+
+  <div id="overlayer"></div>
+  <div class="loader">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+   
+    
+    <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+
+      <div class="container">
+        <div class="row align-items-center">
+          
+          <div class="col-6 col-xl-2">
+            <h1 class="mb-0 site-logo"><a href="{% url 'home' %}" class="h2 mb-0" class="icon-bank">Banking<span class="text-primary">.</span> </a></h1>
+          </div>
+
+          <div class="col-12 col-md-10 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li><a href="{% url 'home' %}" class="nav-link active">Home</a></li>
+                <li><a href="{% url 'admin_login' %}" class="nav-link">Admin</a></li>
+                <li><a href="{% url 'user_login' %}" class="nav-link">User</a></li>
+                <li><a href="{% url 'about' %}" class="nav-link">About Us</a></li>
+                <li><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+
+
+          <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
+
+        </div>
+      </div>
+      
+    </header>
+
+  
+     
+    <div class="site-blocks-cover overlay" style="background-image: url(static/mainapp/images/hero_2.jpg); height:25rem;" data-aos="fade" id="home-section">
+
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          
+          <div class="col-md-10 mt-lg-5 text-center">
+            <div class="single-text owl-carousel">
+              <div class="slide">
+                <h1 class="text-uppercase" data-aos="fade-up">Banking Solutions</h1>
+                <p class="mb-5 desc"  data-aos="fade-up" data-aos-delay="100">Banking designed for you—secure, smart, and seamless transactions!
+                  Banking that works for you—because your time is valuable!
+                </p>
+                <div data-aos="fade-up" data-aos-delay="100">
+                </div>
+              </div>
+
+              <div class="slide">
+                <h1 class="text-uppercase" data-aos="fade-up">Financing Solutions</h1>
+                <p class="mb-5 desc"  data-aos="fade-up" data-aos-delay="100">Your goals deserve the right support—financing made fast and hassle-free!</p>
+              </div>
+
+              <div class="slide">
+                <h1 class="text-uppercase" data-aos="fade-up">Savings Accounts</h1>
+                <p class="mb-5 desc"  data-aos="fade-up" data-aos-delay="100">Grow your savings, secure your future—high-interest accounts available now!</p>
+              </div>
+
+            </div>
+          </div>
+            
+        </div>
+      </div>
+
+      
+    </div>  
+
+    <div class="site-section" id="next">
+      <div class="container">
+        <div class="row mb-2">
+          <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="">
+            <img src="{% static 'mainapp/images/flaticon-svg/svg/001-wallet.svg' %}" alt="image" class="img-fluid w-25 mb-2">
+            <h3 class="card-title">Money Savings</h3>
+            <p>Smart savings start here—watch your money grow with our high-interest accounts!.</p>
+          </div>
+          <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="100">
+            <img src="{% static 'mainapp/images/flaticon-svg/svg/004-cart.svg' %}" alt="image" class="img-fluid w-25 mb-2">
+            <h3 class="card-title">Online Shoppings</h3>
+            <p>Shop more, save more—get exclusive discounts with your bank card!</p>
+          </div>
+          <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="200">
+            <img src="{% static 'mainapp/images/flaticon-svg/svg/006-credit-card.svg' %}" alt="image" class="img-fluid w-25 mb-2">
+            <h3 class="card-title">Credit / Debit Cards</h3>
+            <p>No limits, no worries—enjoy zero-interest EMI plans with your credit card.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <section class="site-section">
+      <div class="container">
+
+        <div class="row mb-2 justify-content-center">
+          <div class="col-md-7 text-center">
+            <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay="">How It Works</h2>
+            <p class="lead" data-aos="fade-up" data-aos-delay="100">From approval to delivery—your financial freedom arrives in style!.</p>
+          </div>
+        </div>
+        
+        <div class="row align-items-lg-center" >
+          <div class="col-lg-6 mb-5" data-aos="fade-up" data-aos-delay="">
+
+            <div class="owl-carousel slide-one-item-alt">
+              <img src="{% static 'mainapp/images/slide_1.jpg' %}" alt="Image" class="img-fluid">
+              <img src="{% static 'mainapp/images/slide_2.jpg' %}" alt="Image" class="img-fluid">
+              <img src="{% static 'mainapp/images/slide_3.jpg' %}" alt="Image" class="img-fluid">
+            </div>
+            <div class="custom-direction">
+              <a href="#" class="custom-prev"><span><span class="icon-keyboard_backspace"></span></span></a><a href="#" class="custom-next"><span><span class="icon-keyboard_backspace"></span></span></a>
+            </div>
+
+          </div>
+          <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="100">
+            
+            <div class="owl-carousel slide-one-item-alt-text">
+              <div>
+                <h2 class="section-title mb-3">01. Online Applications</h2>
+                <p>Apply online in minutes—banking made simple at your fingertips!</p>
+
+                <p><a href="#" class="btn btn-primary mr-2 mb-2">Learn More</a></p>
+              </div>
+              <div>
+                <h2 class="section-title mb-3">02. Get an approval</h2>
+                <p>Quick approvals, faster dreams—your financial solution awaits!.</p>
+                <p><a href="#" class="btn btn-primary mr-2 mb-2">Learn More</a></p>
+              </div>
+              <div>
+                <h2 class="section-title mb-3">03. Card delivery</h2>
+                <p>Apply today, get it tomorrow—quick card issuance for your convenience!</p>
+
+                <p><a href="#" class="btn btn-primary mr-2 mb-2">Learn More</a></p>
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    
+
+    <section class="site-section border-bottom bg-light" id="services-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center" data-aos="fade">
+            <h2 class="section-title mb-3">Our Services</h2>
+          </div>
+        </div>
+        <div class="row align-items-stretch">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4">
+              <div class="unit-4-icon">
+                <img src="{% static 'mainapp/images/flaticon-svg/svg/001-wallet.svg' %}" alt="image" class="img-fluid w-25 mb-4">
+              </div>
+              <div>
+                <h3>Business Consulting</h3>
+                <p>Your vision, our expertise—transforming challenges into opportunities!</p>
+                <p><a href="#">Learn More</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="unit-4">
+              <div class="unit-4-icon">
+                <img src="{% static 'mainapp/images/flaticon-svg/svg/006-credit-card.svg' %}" alt="image" class="img-fluid w-25 mb-4">
+              </div>
+              <div>
+                <h3>Credit Card</h3>
+                <p>Power up your spending—exclusive rewards and cashback with every swipe!</p>
+                <p><a href="#">Learn More</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="unit-4">
+              <div class="unit-4-icon">
+                <img src="{% static 'mainapp/images/flaticon-svg/svg/002-rich.svg' %}" alt="image" class="img-fluid w-25 mb-4">
+              </div>
+              <div>
+                <h3>Income Monitoring</h3>
+                <p>Know where your money flows—real-time monitoring at your fingertips!</p>
+                <p><a href="#">Learn More</a></p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="">
+            <div class="unit-4">
+              <div class="unit-4-icon">
+                <img src="{% static 'mainapp/images/flaticon-svg/svg/003-notes.svg'%}" alt="image" class="img-fluid w-25 mb-4">
+              </div>
+              <div>
+                <h3>Insurance Consulting</h3>
+                <p>your safety, our priority—personalized insurance solutions for every stage!</p>
+                <p><a href="#">Learn More</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="unit-4">
+              <div class="unit-4-icon">
+                <img src="{% static 'mainapp/images/flaticon-svg/svg/004-cart.svg' %}" alt="image" class="img-fluid w-25 mb-4">
+              </div>
+              <div>
+                <h3>Financial Investment</h3>
+                <p>Grow your wealth with smart investments—your future starts today!.</p>
+                <p><a href="#">Learn More</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="unit-4">
+              <div class="unit-4-icon">
+                <img src="{% static 'mainapp/images/flaticon-svg/svg/005-megaphone.svg' %}" alt="image" class="img-fluid w-25 mb-4">
+              </div>
+              <div>
+                <h3>Financial Management</h3>
+                <p>Your money, your rules—seamless financial management for smart decisions!</p>
+                <p><a href="#">Learn More</a></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section bg-light" id="pricing-section">
+      <div class="container">
+       
+        
+        <div class="row site-section" id="faq-section">
+          <div class="col-12 text-center" data-aos="fade">
+            <h2 class="section-title">Frequently Ask Questions</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            
+            <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-black h4 mb-4">Can I accept both Paypal and Stripe?</h3>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+            </div>
+            
+            <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="text-black h4 mb-4">What available is refund period?</h3>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+            </div>
+
+            <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-black h4 mb-4">Can I accept both Paypal and Stripe?</h3>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+            </div>
+            
+          </div>
+          <div class="col-lg-6">
+
+            <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="text-black h4 mb-4">Where are you from?</h3>
+              <p>Voluptatum nobis obcaecati perferendis dolor totam unde dolores quod maxime corporis officia et. Distinctio assumenda minima maiores.</p>
+            </div>
+            
+            <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="text-black h4 mb-4">What is your opening time?</h3>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+            </div>
+
+            <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-black h4 mb-4">Can I accept both Paypal and Stripe?</h3>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section" id="about-section">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6 mb-5" data-aos="fade-up" data-aos-delay="">
+            <figure class="circle-bg">
+            <img src="{% static 'mainapp/images/hero_1.jpg'%}" alt="image" class="img-fluid">
+            </figure>
+          </div>
+          <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="100">
+            
+
+            <div class="row">
+
+              
+              
+              <div class="col-12 mb-4" data-aos="fade-up" data-aos-delay="">
+                <div class="unit-4 d-flex">
+                  <div class="unit-4-icon mr-4 mb-3"><span class="text-primary flaticon-head"></span></div>
+                  <div>
+                    <h3>Bank Loans</h3>
+                    <p>We will approve best finance loans with best intrests.</p>
+                    <p>we will provide all types of loans and fixed deposits.</p>
+                    <p class="mb-0"><a href="#">Learn More</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="unit-4 d-flex">
+                  <div class="unit-4-icon mr-4 mb-3"><span class="text-primary flaticon-smartphone"></span></div>
+                  <div>
+                    <h3>Banking Consulation </h3>
+                    <p>From savings to investments—secure your future with expert guidance!.</p>
+                    <p class="mb-0"><a href="#">Learn More</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            
+          </div>
+        </div>
+
+        
+      </div>
+    </section>
+  
+    
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-5">
+                <h2 class="footer-heading mb-4">About Us</h2>
+                <p>Our mission is to provide trustworthy, transparent, and technology-driven financial solutions that enhance your financial freedom. Join us in building a secure and prosperous future!
+.</p>
+              </div>
+              <div class="col-md-3 ml-auto">
+                <h2 class="footer-heading mb-4">Quick Links</h2>
+                <ul class="list-unstyled">
+                  <li><a href="{% url 'home' %}" class="smoothscroll">Home</a></li>
+                  <li><a href="{% url 'admin_login' %}" class="smoothscroll">Admin</a></li>
+                  <li><a href="{% url 'user_login' %}" class="smoothscroll">User</a></li>
+                  <li><a href="{% url 'about' %}" class="smoothscroll">About Us</a></li>
+                  <li><a href="{% url 'contact' %}" class="smoothscroll">Contact Us</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3 footer-social">
+                <h2 class="footer-heading mb-4">Follow Us</h2>
+                <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="row pt-5 text-center">
+          <div class="col-md-12">
+            <div class="border-top pt-5">
+              <p class="copyright"><small>
+             
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> 
+            All rights reserved | Designed by <a href="">Codebook.in</a>
+           </small></p>
+        
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </footer>
+
+  </div> <!-- .site-wrap -->
+
+<script src="{% static 'mainapp/js/jquery-3.3.1.min.js'%}"></script>
+  <script src="{% static 'mainapp/js/jquery-ui.js'%}"></script>
+  <script src="{% static 'mainapp/js/popper.min.js'%}"></script>
+  <script src="{% static 'mainapp/js/bootstrap.min.js'%}"></script>
+  <script src="{% static 'mainapp/js/owl.carousel.min.js'%}"></script>
+  <script src="{% static 'mainapp/js/jquery.countdown.min.js'%}"></script>
+  <script src="{% static 'mainapp/js/jquery.easing.1.3.js'%}"></script>
+  <script src="{% static 'mainapp/js/aos.js'%}"></script>
+  <script src="{% static 'mainapp/js/jquery.fancybox.min.js'%}"></script>
+  <script src="{% static 'mainapp/js/jquery.sticky.js'%}"></script>
+  <script src="{% static 'mainapp/js/isotope.pkgd.min.js'%}"></script>
+
+  
+  <script src="{% static 'mainapp/js/main.js'%}"></script>
+
+  
+  </body>
+</html>
